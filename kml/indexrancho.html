@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html>
+<html  style="height: 100%;">
+<!--
+Copyright 2009 Google Inc.
+ 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<head>
+  <title>Kenneth S. Norris Rancho Marino Reserve Interactive GIS</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+  
+  <!-- Change the key below to your own Maps API key -->
+  <script type="text/javascript" src="http://www.google.com/jsapi?hl=en&amp;key=ABQIAAAA8RrxXUVNYDNRaW93CSZSYxTHOLnWvEG0Z7JWeWJmXRJiCAy9XBQmh5ArY3KNh_XyzFG-9-AQXCA4Yw"></script>
+  <script type="text/javascript">
+  /* <![CDATA[ */
+  var ge;
+  
+  // store the object loaded for the given file... initially none of the objects
+  // are loaded, so initialize these to null
+  var currentKmlObjects = {
+    'ctour10_reserve' : null,    
+    'soils_reserve': null,
+    'ponds': null,
+    'buildings': null,
+    'Roadedges': null,
+    'reserve_boundary': null,
+    'n_coast_veg_reserve': null,
+      'mergedpoints1': null
+
+  };
+  
+  google.load("earth", "1");
+ 
+  function init() {
+    google.earth.createInstance('map3d', initCB, failureCB);
+  }
+  
+  function initCB(instance) {
+    ge = instance;
+    ge.getWindow().setVisibility(true);
+    
+    // add a navigation control
+    ge.getNavigationControl().setVisibility(ge.VISIBILITY_AUTO);
+    
+    // add some layers
+    ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, true);
+    ge.getLayerRoot().enableLayerById(ge.LAYER_ROADS, true);
+ 
+    // fly to Rancho Marino
+    var la = ge.createLookAt('');
+    la.set(35.5356, -121.086,
+      0, // altitude
+      ge.ALTITUDE_RELATIVE_TO_GROUND,
+      0, // heading
+      0, // straight-down tilt
+      8000 // range (inverse of zoom)
+      );
+    ge.getView().setAbstractView(la);
+    
+    // if the page loaded with checkboxes checked, load the appropriate
+    // KML files
+    if (document.getElementById('kml-soils_reserve-check').checked)
+      loadKml('soils_reserve');
+    
+    if (document.getElementById('kml-ponds-check').checked)
+      loadKml('ponds');
+    
+    if (document.getElementById('kml-buildings-check').checked)
+      loadKml('buildings');
+
+    if (document.getElementById('kml-Roadedges-check').checked)
+      loadKml('Roadedges');
+  
+    if (document.getElementById('kml-reserve_boundary-check').checked)
+      loadKml('reserve_boundary');
+
+    if (document.getElementById('kml-n_coast_veg_reserve-check').checked)
+      loadKml('n_coast_veg_reserve');
+
+    if (document.getElementById('kml-ctour10_reserve-check').checked)
+      loadKml('ctour10_reserve');
+
+    if (document.getElementById('kml-mergedpoints1-check').checked)
+      loadKml('mergedpoints1');
+
+    
+    document.getElementById('installed-plugin-version').innerHTML =
+      ge.getPluginVersion().toString();
+  }
+  
+  function failureCB(errorCode) {
+  }
+  
+  function toggleKml(file) {
+    // remove the old KML object if it exists
+    if (currentKmlObjects[file]) {
+      ge.getFeatures().removeChild(currentKmlObjects[file]);
+      currentKmlObject = null;
+    }
+    
+    // if the checkbox is checked, fetch the KML and show it on Earth
+    var kmlCheckbox = document.getElementById('kml-' + file + '-check');
+    if (kmlCheckbox.checked)
+      loadKml(file);
+  }
+  
+  function loadKml(file) {
+    var kmlUrl = 'http://www.johntrone.com/' +
+      'kml/' + file + '.kml';
+  
+    // fetch the KML
+    google.earth.fetchKml(ge, kmlUrl, function(kmlObject) {
+      // NOTE: we still have access to the 'file' variable (via JS closures)
+      
+      if (kmlObject) {
+        // show it on Earth
+        currentKmlObjects[file] = kmlObject;
+        ge.getFeatures().appendChild(kmlObject);
+      } else {
+        // bad KML
+        currentKmlObjects[file] = null;
+  
+        // wrap alerts in API callbacks and event handlers
+        // in a setTimeout to prevent deadlock in some browsers
+        setTimeout(function() {
+          alert('Bad or null KML.');
+        }, 0);
+        
+        // uncheck the box
+        document.getElementById('kml-' + file + '-check').checked = '';
+      }
+    });
+  }
+  
+  
+  /* ]]> */
+  </script>
+</head>
+<body onLoad="if(window.prettyPrint)prettyPrint();init();" style="height: 100%;">
+  <h1>Kenneth S. Norris Rancho Marino Reserve Interactive GIS</h1>
+  <dl>
+            <dt>Last Modified:</dt>
+            <dd>01/18/2015</dd>
+    <dt>Installed Plugin Version:</dt><dd id="installed-plugin-version">...
+  </dd>
+  Still working in Safari and Firefox as of late June 2015
+  </dl>
+  <dl>
+    <dt>&nbsp;</dt>
+    <dt><a href="../index.html">Home Page</a></dt>
+  </dl>
+  
+  <div id="ui" style="position: relative; height: 100%;">
+    <div id="map3d" style="border: 1px solid silver; width: 70%; height: 70%;"></div>
+ 
+    <div id="extra-ui" style="position: absolute; left: 75%; top: 0;">
+<h2>Reserve Layers:</h2>
+
+<input type="checkbox" id="kml-reserve_boundary-check" onClick="toggleKml('reserve_boundary');"/>
+<label for="kml-reserve_boundary-check">Reserve Boundary</label><br/>
+
+<input type="checkbox" id="kml-Roadedges-check" onClick="toggleKml('Roadedges');"/>
+<label for="kml-Roadedges-check">Road Edges</label><br/>
+
+<input type="checkbox" id="kml-buildings-check" onClick="toggleKml('buildings');"/>
+<label for="kml-buildings-check">Buildings</label><br/>
+
+<input type="checkbox" id="kml-ponds-check" onClick="toggleKml('ponds');"/>
+<label for="kml-ponds-check">Ponds</label><br/>
+
+<input type="checkbox" id="kml-soils_reserve-check" onClick="toggleKml('soils_reserve');"/>
+<label for="kml-soils_reserve-check">Soil Type</label><br/>
+
+<input type="checkbox" id="kml-n_coast_veg_reserve-check" onClick="toggleKml('n_coast_veg_reserve');"/>
+<label for="kml-n_coast_veg_reserve-check">Vegetation Type</label><br/>
+
+<input type="checkbox" id="kml-ctour10_reserve-check" onClick="toggleKml('ctour10_reserve');"/>
+<label for="kml-ctour10_reserve-check">10 Foot Elevation Contours</label><br/>
+
+<input type="checkbox" id="kml-mergedpoints1-check" onClick="toggleKml('mergedpoints1');"/>
+<label for="kml-mergedpoints1-check">Reserve Data Points</label><br/>
+
+
+
+
+  </div></div>
+</body>
+</html>
+

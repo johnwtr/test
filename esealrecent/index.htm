@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="BreezeBrowser, www.breezesys.com">
+<!-- saved from url=(0013)about:internet -->
+<title></title>
+<meta name="google-site-verification" content="AnPxicM7S3quI01-a_gUPJieC7YpCsy0-iooVYBnl18" />
+<title> My title </title>
+</head>
+<body bgcolor="white" text="black">
+<center>
+  <p>
+    <center>
+      <b><font size="+2" color="#0000FF">John W. Trone Photography</font></b>
+    </center>
+  </p>
+  <p><font size="+2" color="#003300">e-mail: <a href="mailto:john@johntrone.com">john@johntrone.com</a></font>
+  <h3><a href="../index.html">Home Page</a></h3>   
+  <p>
+  <center>
+  </center>
+ Click on any photo to see a larger version<br>
+<hr>
+<script language="javascript">
+<!--
+// The number of rows and columns on each index page
+// Don't forget to change this in fullsize_template.htm if you change it here
+var numColumns = 4
+var numRows = 3
+if (numColumns < 1) numColumns = 1
+if (numRows < 1) numRows = 1
+
+function thumbnail(imageNumber, caption, url, image, width, height, file)
+{
+	if ((imageNumber - 1) % numColumns == 0) document.write('</tr><tr align="center">')
+	w=width-10
+	h=height-11
+	document.write('<td><table border="0" cellpadding="0" cellspacing="0"><tr>')
+	document.write('<td><a href="'+url+'"><img src="'+image+'" width="'+width+'" height="'+height+'" title="'+caption+'" alt="'+caption+'" border="0"></a></td>')
+	document.write('<td valign="top"><img src="whitesquare.gif" width="8" height="3"><br>')
+	document.write('<img src="tntopright.gif" width="8" height="8"><br>')
+	document.write('<img src="tnright.gif" width="8" height="' + h + '"></td>')
+	document.write('</tr><tr><td valign="top"><img src="whitesquare.gif" width="2" height="7">')
+	document.write('<img src="tnbottomleft.gif" width="8" height="7">')
+	document.write('<img src="tnbottom.gif" width="' + w + '" height="7"></td>')
+	document.write('<td valign="top"><img src="tnbottomright.gif" width="8" height="7"></td></tr></table></td>')
+}
+
+var numImages = 19
+var imagesPerPage = numColumns * numRows
+
+// count the number of pages
+var remainder = numImages;
+var numPages = 0
+while (remainder > 0)
+{
+	numPages++
+	remainder -= imagesPerPage
+}
+
+// determine which index page we are on
+var url = new String(window.location)
+var i = url.indexOf("?")
+var page = 1
+if (i > 0)
+{
+	page = url.substring(i + 1, url.length)
+	if (page < 1) page = 1
+	if (page > numPages) page = numPages
+}
+
+// work out start and end images for this index page
+var startImage = (page - 1) * imagesPerPage + 1
+var endImage = startImage + imagesPerPage - 1
+if (page > 1)
+{
+	prevPage = page - 1
+	document.write('<a href="index.htm?' + prevPage + '">Previous Page</a> | ')
+}
+else
+{
+	document.write('Previous Page | ')
+}
+document.write('Page ' + page + ' of ' + numPages);
+if (page < numPages)
+{
+	nextPage = page
+	nextPage++
+	document.write(' | <a href="index.htm?' + nextPage + '">Next Page</a><br>\n')
+}
+else
+{
+	document.write(' | Next Page<br>\n')
+}
+if (numPages > 3)
+{
+	document.write('Page: ')
+	for (i = 1; i <= numPages; i++)
+	{
+		if (i == page) document.write('<b>' + i + '</b> ')
+		else document.write('<a href="index.htm?' + i + '">' + i + '</a> ')
+	}
+}
+document.write('<hr>\n<table>\n<tr align="center">\n')
+if (startImage <= 1 && endImage >= 1) thumbnail(1, "Taken at Latitude/Longitude:35.665878/-121.269424. 7.52 km West San Simeon California United States  (Map link)", "_mg_6484_wm.htm", "_mg_6484_wm_thm.jpg", 120, 80, "_MG_6484_wm.jpg")
+if (startImage <= 2 && endImage >= 2) thumbnail(2, "Taken at Latitude/Longitude:35.665871/-121.269386. 7.51 km West San Simeon California United States  (Map link)", "_mg_6560_wm.htm", "_mg_6560_wm_thm.jpg", 120, 80, "_MG_6560_wm.jpg")
+if (startImage <= 3 && endImage >= 3) thumbnail(3, "Taken at Latitude/Longitude:35.665878/-121.269409. 7.52 km West San Simeon California United States  (Map link)", "_wtn6630_wm.htm", "_wtn6630_wm_thm.jpg", 120, 80, "_WTN6630_wm.jpg")
+if (startImage <= 4 && endImage >= 4) thumbnail(4, "Taken at Latitude/Longitude:35.665878/-121.269394. 7.51 km West San Simeon California United States  (Map link)", "_wtn6783_wm.htm", "_wtn6783_wm_thm.jpg", 120, 80, "_WTN6783_wm.jpg")
+if (startImage <= 5 && endImage >= 5) thumbnail(5, "Taken at Latitude/Longitude:35.665878/-121.269394. 7.51 km West San Simeon California United States  (Map link)", "_wtn6794_wm.htm", "_wtn6794_wm_thm.jpg", 120, 80, "_WTN6794_wm.jpg")
+if (startImage <= 6 && endImage >= 6) thumbnail(6, "Taken at Latitude/Longitude:35.665878/-121.269386. 7.51 km West San Simeon California United States  (Map link)", "_wtn6799_wm.htm", "_wtn6799_wm_thm.jpg", 120, 80, "_WTN6799_wm.jpg")
+if (startImage <= 7 && endImage >= 7) thumbnail(7, "Taken at Latitude/Longitude:35.665878/-121.269394. 7.51 km West San Simeon California United States  (Map link)", "_wtn6813_wm.htm", "_wtn6813_wm_thm.jpg", 120, 80, "_WTN6813_wm.jpg")
+if (startImage <= 8 && endImage >= 8) thumbnail(8, "Taken at Latitude/Longitude:35.665874/-121.269402. 7.52 km West San Simeon California United States  (Map link)", "_wtn6823_wm.htm", "_wtn6823_wm_thm.jpg", 120, 80, "_WTN6823_wm.jpg")
+if (startImage <= 9 && endImage >= 9) thumbnail(9, "Taken at Latitude/Longitude:35.665878/-121.269394. 7.51 km West San Simeon California United States  (Map link)", "_wtn6848_wm.htm", "_wtn6848_wm_thm.jpg", 120, 80, "_WTN6848_wm.jpg")
+if (startImage <= 10 && endImage >= 10) thumbnail(10, "Taken at Latitude/Longitude:35.665886/-121.269409. 7.52 km West San Simeon California United States  (Map link)", "_wtn6849_wm.htm", "_wtn6849_wm_thm.jpg", 120, 80, "_WTN6849_wm.jpg")
+if (startImage <= 11 && endImage >= 11) thumbnail(11, "Taken at Latitude/Longitude:35.665867/-121.269417. 7.52 km West San Simeon California United States  (Map link)", "_x9j0005_wm.htm", "_x9j0005_wm_thm.jpg", 120, 80, "_X9J0005_wm.jpg")
+if (startImage <= 12 && endImage >= 12) thumbnail(12, "Taken at Latitude/Longitude:35.665867/-121.269417. 7.52 km West San Simeon California United States  (Map link)", "_x9j0006_wm.htm", "_x9j0006_wm_thm.jpg", 120, 80, "_X9J0006_wm.jpg")
+if (startImage <= 13 && endImage >= 13) thumbnail(13, "Taken at Latitude/Longitude:35.665882/-121.269402. 7.52 km West San Simeon California United States  (Map link)", "_x9j0011_wm.htm", "_x9j0011_wm_thm.jpg", 120, 80, "_X9J0011_wm.jpg")
+if (startImage <= 14 && endImage >= 14) thumbnail(14, "Taken at Latitude/Longitude:35.665886/-121.269402. 7.52 km West San Simeon California United States  (Map link)", "_x9j9919_wm.htm", "_x9j9919_wm_thm.jpg", 120, 80, "_X9J9919_wm.jpg")
+if (startImage <= 15 && endImage >= 15) thumbnail(15, "Taken at Latitude/Longitude:35.665867/-121.269386. 7.51 km West San Simeon California United States  (Map link)", "_x9j9930_wm.htm", "_x9j9930_wm_thm.jpg", 120, 80, "_X9J9930_wm.jpg")
+if (startImage <= 16 && endImage >= 16) thumbnail(16, "Taken at Latitude/Longitude:35.665871/-121.269386. 7.51 km West San Simeon California United States  (Map link)", "_x9j9934_wm.htm", "_x9j9934_wm_thm.jpg", 120, 80, "_X9J9934_wm.jpg")
+if (startImage <= 17 && endImage >= 17) thumbnail(17, "Taken at Latitude/Longitude:35.665867/-121.269409. 7.52 km West San Simeon California United States  (Map link)", "_x9j9976_wm.htm", "_x9j9976_wm_thm.jpg", 80, 120, "_X9J9976_wm.jpg")
+if (startImage <= 18 && endImage >= 18) thumbnail(18, "Taken at Latitude/Longitude:35.665867/-121.269409. 7.52 km West San Simeon California United States  (Map link)", "_x9j9978_wm.htm", "_x9j9978_wm_thm.jpg", 80, 120, "_X9J9978_wm.jpg")
+if (startImage <= 19 && endImage >= 19) thumbnail(19, "Taken at Latitude/Longitude:35.665874/-121.269402. 7.52 km West San Simeon California United States  (Map link)", "_x9j9991_wm.htm", "_x9j9991_wm_thm.jpg", 120, 80, "_X9J9991_wm.jpg")
+
+document.write('</tr></table>\n')
+// -->
+</script>
+</center>
+<hr>
+</body>
+</html>
