@@ -102,7 +102,7 @@
 
 <!--<div id="centerdiv">-->
 
-          <div class="galleria">
+          <div class="galleria" style="width: 90%">
             <img src="http://www.johntrone.com/johntronetonedcyanotype001.jpg">
             <img src="http://www.johntrone.com/johntronetonedcyanotype002.jpg">
             <img src="http://www.johntrone.com/johntronetonedcyanotype003.jpg">
@@ -119,9 +119,11 @@
   Galleria.loadTheme('js/galleria.classic.min.js');
 
 Galleria.run('.galleria',{
-    height: 0.5,
+  height: 0.5,
   imageCrop: false,
-  imageMargin: 1
+  autoplay: 4000,
+  thumbnails: false,
+  showImagenav: false
 });
 
 </script>
