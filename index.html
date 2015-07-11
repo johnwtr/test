@@ -10,27 +10,49 @@
   <title>jtphoto</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="css/galleria.classic.css">
   
+<script src="http://cdn.optimizely.com/js/266130224.js" type="text/javascript"></script>
+  
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<script src="js/galleria-1.4.2.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- optional touchswipe file to enable swipping to navigate slideshow -->
+<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script> 
 
 <style>
 
 
-      #centerdiv
+  
+  div.gallerylayer{
+        background: white !important;
+  }
+  
+  #fadeshow1 .gallerylayer img{
+ max-width: 100%;
+
+ height: auto !important
+}
+
+      #fadeshow1
 {
-  width: 800px;
-  display: block;
+
   margin-left: auto;
   margin-right: auto;
+
+
+
+
+
 
 }
 
@@ -51,16 +73,50 @@
     }
 }
   
-  
-  
 </style>
+
+<script type="text/javascript" src="js/fadeslideshow.js">
+
+/***********************************************
+* Ultimate Fade In Slideshow v2.0- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+var mygallery=new fadeSlideShow({
+	wrapperid: "fadeshow1", //ID of blank DIV on page to house Slideshow
+	dimensions: ['95%', '800'], //width/height of gallery in pixels. Should reflect dimensions of largest image
+	imagearray: [
+		["http://www.johntrone.com/johntronetonedcyanotype001.jpg"],
+		["http://www.johntrone.com/johntronetonedcyanotype002.jpg"],
+		["http://www.johntrone.com/johntronetonedcyanotype003.jpg"],
+		["http://www.johntrone.com/johntronetonedcyanotype004.jpg"] //<--no trailing comma after very last image element!
+	],
+	displaymode: {type:'auto', pause:3700, cycles:0, wraparound:true, randomize:true},
+	persist: false, //remember last viewed slide and recall within same session?
+	fadeduration: 500, //transition duration (milliseconds)
+	descreveal: "ondemand",
+	togglerid: ""
+
+})
+
+</script>
+
   
 </head>
  
 <body>
-  
-<div id="apDiv2"><a href="index.html"><img src="logo100arial18bold.jpg" width="360" height="30" alt="John Trone Photography"></a><a href="index.html"></a></div>
 
+
+    <div class="container">  
+    
+      <p><a href="index.html"><img id="mainlogo" src="logo100arial18bold.jpg" alt="John Trone Photography" width="360" height="30" vspace="10"></a><a href="index.html"></a></p>   
+
+<nav>
 
     <nav class="navbar navbar-vert navbar-default">
   <div class="container-fluid">
@@ -100,32 +156,13 @@
   </div>
 </nav>
 
-<!--<div id="centerdiv">-->
 
-          <div class="galleria" style="width: 90%">
-            <img src="http://www.johntrone.com/johntronetonedcyanotype001.jpg">
-            <img src="http://www.johntrone.com/johntronetonedcyanotype002.jpg">
-            <img src="http://www.johntrone.com/johntronetonedcyanotype003.jpg">
-            <img src="http://www.johntrone.com/johntronetonedcyanotype004.jpg">            
-        </div>
-  
-<!--  </div> <!-- end centerdiv --> 
+<div id="fadeshow1"></div>
+	          			
 
+ </div>
 
   
 </body>
-  <script type="text/javascript">
-  
-  Galleria.loadTheme('js/galleria.classic.min.js');
-
-Galleria.run('.galleria',{
-  height: 0.5,
-  imageCrop: false,
-  autoplay: 4000,
-  thumbnails: false,
-  showImagenav: false
-});
-
-</script>
   
 </html>
